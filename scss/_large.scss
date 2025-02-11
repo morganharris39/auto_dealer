@@ -1,0 +1,10 @@
+header, nav, main {
+    max-width: 960px;
+    margin: auto;
+}
+
+.cardParent {
+    div {
+        flex-basis: calc(25% - (($gutter * 3) / 4));
+    }
+}
