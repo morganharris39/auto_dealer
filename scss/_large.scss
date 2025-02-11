@@ -4,6 +4,9 @@ header, nav, main {
 }
 
 .cardParent {
+    img {
+        width: 50%;
+    }
     div {
         flex-basis: calc(25% - (($gutter * 3) / 4));
     }
