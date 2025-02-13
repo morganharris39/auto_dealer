@@ -29,10 +29,18 @@ for (let x = 0; x < reviews.length; x++) {
     const cardReview = document.createElement('p')
     cardReview.textContent = reviews[x].comment
 
-    // crea the star elements
+    const cardRating = document.createElement('div')
+
+    for (let star = 0; star < reviews[x].rating; star++) {
+        // create the star elements
+        const starAmount = document.createElement('img')
+        starAmount.src ="./images/star-solid.svg"
+        cardRating.appendChild(starAmount)
+    }
 
     // build the card
     cardSection.appendChild(cardName);
+    cardSection.appendChild(cardRating);
     cardSection.appendChild(cardReview);
 
     // add card to page 

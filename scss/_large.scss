@@ -4,10 +4,29 @@ header, nav, main {
 }
 
 .cardParent {
-    img {
-        width: 50%;
-    }
     div {
         flex-basis: calc(25% - (($gutter * 3) / 4));
     }
+}
+
+.reviewWrapper {
+    #cards {
+        display: flex;
+        flex-wrap: wrap;
+        gap: $gutter;
+        section {
+            flex-basis: calc(50% - ($gutter / 2));
+        }
+    }
+}
+
+.carHeroImage {
+    p {
+        font-size: 4rem;
+        max-width: 400px;
+    }
+}
+
+#cards {
+    margin: 0;
 }

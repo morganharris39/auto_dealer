@@ -314,14 +314,14 @@ html {
 
 /* --------------------------- BODY --------------------------- */
 body {
-  font-family: "Spline Sans", sans-serif;
-  font-weight: 300;
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
   min-width: 320px;
 }
 
 /* --------------------------- HEADER --------------------------- */
 #headerWrapper {
-  border-bottom: 1px solid #ccc;
+  background-color: #0d1229;
 }
 
 header {
@@ -334,13 +334,14 @@ header {
 }
 header span {
   font-size: 1.6rem;
-  font-weight: 300;
-  color: #1d295f;
+  font-weight: 500;
+  color: #ffb26b;
 }
 
 /* --------------------------- NAVIGATION STUFF GOES HERE --------------------------- */
 #theButton::before {
   content: "☰";
+  color: white;
 }
 
 #theButton {
@@ -356,24 +357,30 @@ header span {
   cursor: pointer;
 }
 
+#navWrapper {
+  background-color: #0d1229;
+}
+
 #theNav ul {
   list-style-type: none;
   margin: 0;
-  padding: 0;
+  padding: 1rem 0;
 }
 #theNav ul li a {
-  color: #1d295f;
+  color: #0d1229;
   display: block;
   padding: 0.75rem 10px;
   text-decoration: none;
-  border-bottom: 1px solid #ccc;
+  border-bottom: 1px solid black;
+  color: white;
 }
 #theNav ul li.active a {
-  color: #7c1d47;
+  color: #ffb26b;
 }
 
 #theButton.open::before {
   content: "✕";
+  color: white;
 }
 
 #theNav {
@@ -393,8 +400,8 @@ header span {
 main h1 {
   padding: 1rem 10px 0.5rem 10px;
   font-size: 1.5rem;
-  color: #7c1d47;
-  font-weight: 300;
+  color: #0d1229;
+  font-weight: 500;
 }
 main p {
   padding: 0.5rem 10px;
@@ -403,8 +410,18 @@ main p {
 }
 
 .carHeroImage {
-  border: 1px solid red;
   position: relative;
+}
+.carHeroImage::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgb(0, 0, 0);
+  background: linear-gradient(90deg, rgb(0, 0, 0) 0%, rgba(0, 0, 0, 0.5298494398) 35%, rgba(0, 212, 255, 0) 100%);
+  z-index: 1;
 }
 .carHeroImage img {
   width: 100%;
@@ -414,42 +431,69 @@ main p {
 .carHeroImage p {
   position: absolute;
   top: 0;
-  margin: 0;
+  margin: 0 0 0 0.5rem;
   color: white;
+  font-size: 1.7rem;
+  max-width: 170px;
+  z-index: 2;
 }
 
 h1 {
-  margin: 0;
+  margin: 0m 0 1rem 0;
+  font-size: 1.2rem;
 }
 
 .cardParent {
-  border: 1px solid orange;
   padding: 0 10px;
   margin-bottom: 3rem;
   text-align: center;
 }
-.cardParent img {
-  display: block;
-  width: 25%;
-  height: auto;
-  margin: 1.5rem auto 0 auto;
-}
-.cardParent svg {
-  margin: 2.5rem 0 2rem 0;
-}
 .cardParent div {
-  border: 1px solid pink;
+  border: 1px solid #ccc;
+  background-color: white;
+  filter: drop-shadow(0 0 5px #dedede);
+  border-radius: 10px;
   overflow: hidden;
   padding: 0 0.5rem 2rem 0.5rem;
+  margin-bottom: 1rem;
+}
+.cardParent div img {
+  display: block;
+  width: 50px;
+  height: auto;
+  margin: 1.5rem auto 0 auto;
+  position: relative;
+}
+.cardParent div svg {
+  margin: 1rem 0 0 0;
+  width: 25px;
+}
+.cardParent div img:hover, .cardParent div svg:hover {
+  animation: expandAnimation 1s ease-in-out;
 }
 .cardParent button {
   border: none;
-  background-color: green;
-  padding: 0.5rem 0.75rem;
+  background-color: #ffb26b;
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+}
+.cardParent button:hover {
+  background-color: #da8c44;
+}
+@keyframes expandAnimation {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.5);
+  }
+  100% {
+    transform: scale(1);
+  }
 }
 
-#reviewWrapper {
-  background-color: plum;
+.reviewWrapper {
   padding: 2rem 0;
   text-align: center;
 }
@@ -458,25 +502,27 @@ h1 {
   text-align: center;
 }
 #cards h3 {
-  margin: 2rem 10px 0 10px;
+  margin: 2rem 10px 1rem 10px;
   text-align: center;
-  color: purple;
+}
+#cards img {
+  width: 20px;
 }
 
 /* --------------------------- FOOTER --------------------------- */
 #footerWrapper {
-  background-color: #1d295f;
+  background-color: #0d1229;
 }
 
 footer {
   font-size: 0.85rem;
   padding: 1rem 10px;
-  color: #ccc;
+  color: #ffb26b;
   text-align: center;
   line-height: 150%;
 }
 footer a {
-  color: #ccc;
+  color: #ffb26b;
 }
 
 @media only screen and (min-width: 35rem) {
@@ -498,18 +544,22 @@ footer a {
     text-decoration: underline;
   }
   #navWrapper {
-    border-bottom: 1px solid #ccc;
+    border-bottom: 1px solid black;
   }
   .cardParent {
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
   }
-  .cardParent img {
-    width: 30%;
-  }
   .cardParent div {
     flex-basis: calc(50% - 5px);
+  }
+  .carHeroImage p {
+    font-size: 3rem;
+    max-width: 300px;
+  }
+  #cards {
+    margin: 0 4rem;
   }
 }
 @media only screen and (min-width: 64rem) {
@@ -517,10 +567,22 @@ footer a {
     max-width: 960px;
     margin: auto;
   }
-  .cardParent img {
-    width: 50%;
-  }
   .cardParent div {
     flex-basis: calc(25% - 7.5px);
+  }
+  .reviewWrapper #cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  .reviewWrapper #cards section {
+    flex-basis: calc(50% - 5px);
+  }
+  .carHeroImage p {
+    font-size: 4rem;
+    max-width: 400px;
+  }
+  #cards {
+    margin: 0;
   }
 }

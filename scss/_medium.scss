@@ -20,17 +20,25 @@
 }
 
 #navWrapper {
-    border-bottom: 1px solid $greyColor;
+    border-bottom: 1px solid black;
 }
 
 .cardParent {
     display: flex;
     flex-wrap: wrap;
     gap: $gutter;
-    img {
-        width: 30%;
-    }
     div {
         flex-basis: calc(50% - ($gutter / 2));
     }
+}
+
+.carHeroImage {
+    p {
+        font-size: 3rem;
+        max-width: 300px;
+    }
+}
+
+#cards {
+    margin: 0 4rem;
 }

@@ -15,13 +15,16 @@ html {
 /* --------------------------- BODY --------------------------- */
 body {
     font-family: $defaultFont;
-    font-weight: $lightWeight;
+    font-weight: $normalWeight;
     min-width: 320px;
 }
 
 
 /* --------------------------- HEADER --------------------------- */
-#headerWrapper {border-bottom: 1px solid $greyColor;}
+#headerWrapper {
+    background-color: $primaryColor;
+}
+
 header {
     display: grid;
     grid-template-columns: 50px auto;
@@ -30,8 +33,8 @@ header {
     padding: .5rem $gutter;
     span {
         font-size: 1.6rem;
-        font-weight: $lightWeight;
-        color: $primaryColor;
+        font-weight: $normalWeight;
+        color: $secondaryColor;
     }
 } // end header
 
@@ -40,6 +43,7 @@ header {
 
 #theButton::before  {
     content: "\2630";
+    color: white;
 }
 
 #theButton {
@@ -55,16 +59,21 @@ header {
     cursor: pointer;
 }
 
+#navWrapper {
+    background-color: $primaryColor;
+}
+
 #theNav ul{
     list-style-type: none;
     margin: 0;
-    padding: 0;
+    padding: 1rem 0;
     li a {
         color: $primaryColor;
         display: block;
         padding: 0.75rem $gutter;
         text-decoration: none;
-        border-bottom: 1px solid $greyColor;
+        border-bottom: 1px solid black;
+        color: white;
     }
     li.active a {
         color: $secondaryColor;
@@ -73,6 +82,7 @@ header {
 
 #theButton.open::before {
     content: "\2715";
+    color: white;
 }
 
 #theNav {
@@ -93,8 +103,8 @@ main {
     h1 {
         padding: 1rem $gutter.5rem $gutter;
         font-size: 1.5rem;
-        color: $secondaryColor;
-        font-weight: $lightWeight
+        color: $primaryColor;
+        font-weight: $normalWeight
     }
     p {
         padding: .5rem $gutter;
@@ -104,7 +114,17 @@ main {
 }// end main
 
 .carHeroImage {
-    border: 1px solid red;
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgb(0,0,0);
+        background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0.5298494397759104) 35%, rgba(0,212,255,0) 100%);
+        z-index: 1;
+    }
     position: relative;
     img {
         width: 100%;
@@ -114,43 +134,64 @@ main {
     p {
         position: absolute;
         top: 0;
-        margin: 0;
+        margin: 0 0 0 0.5rem;
         color: white;
+        font-size: 1.7rem;
+        max-width: 170px;
+        z-index: 2;
     }
 }
 
 h1 {
-    margin: 0;
+    margin: 0m 0 1rem 0;
+    font-size: 1.2rem;
 }
 
 .cardParent {
-    border: 1px solid orange;
     padding: 0 $gutter;
     margin-bottom: 3rem;
     text-align: center;
-    img {
-        display: block;
-        width: 25%;
-        height: auto;
-        margin: 1.5rem auto 0 auto;
-    }
-    svg {
-        margin: 2.5rem 0 2rem 0;
-    }
     div {
-        border: 1px solid pink;
+        border: 1px solid $greyColor;
+        background-color: white;
+        filter: drop-shadow(0 0 5px #dedede);
+        border-radius: 10px;
         overflow: hidden;
         padding: 0 0.5rem 2rem 0.5rem;
+        margin-bottom: 1rem;
+        img {
+            display: block;
+            width: 50px;
+            height: auto;
+            margin: 1.5rem auto 0 auto;
+            position: relative;
+        }
+        svg {
+            margin: 1rem 0 0 0;
+            width: 25px;
+        }
+        img:hover, svg:hover {
+            animation: expandAnimation 1s ease-in-out;
+        }
     }
     button {
         border: none;
-        background-color: green;
-        padding: 0.5rem 0.75rem;
+        background-color: $secondaryColor;
+        padding: 0.75rem 1rem;
+        border-radius: 8px;
+        cursor: pointer;
+        &:hover {
+            background-color: #da8c44;
+        }
+    }
+    @keyframes expandAnimation {
+        0% {transform: scale(1.0);}
+        50% {transform: scale(1.5);}
+        100% {transform: scale(1.0);}
     }
 }
 
-#reviewWrapper {
-    background-color: plum;
+.reviewWrapper {
     padding: 2rem 0;
     text-align: center;
 }
@@ -158,22 +199,24 @@ h1 {
 #cards {
     text-align: center;
     h3 {
-        margin: 2rem $gutter 0 $gutter;
+        margin: 2rem $gutter 1rem $gutter;
         text-align: center;
-        color: purple;
+    }
+    img {
+        width: 20px;
     }
 }
 
 /* --------------------------- FOOTER --------------------------- */
 #footerWrapper {
-    background-color: $primaryColor
+    background-color: $primaryColor;
 } // end footer wrapper
 
 footer {
     font-size: .85rem;
     padding: 1rem $gutter;
-    color: $greyColor;
+    color: $secondaryColor;
     text-align: center;
     line-height: $leading;
-    a {color: $greyColor;}
+    a {color: $secondaryColor;}
 }// end footer
