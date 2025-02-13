@@ -46,7 +46,7 @@ header {
             color: $secondaryColor;
             text-decoration: none;
             &:hover {
-                text-decoration: un;
+                text-decoration: underline;
             }
         }
     }
@@ -157,7 +157,7 @@ main {
 }
 
 h1 {
-    margin: 0m 0 1rem 0;
+    margin: 0 0 1rem 0;
     font-size: 1.2rem;
 }
 
