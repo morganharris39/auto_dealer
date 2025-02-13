@@ -325,17 +325,31 @@ body {
 }
 
 header {
-  display: grid;
-  grid-template-columns: 50px auto;
-  -moz-column-gap: 10px;
-       column-gap: 10px;
+  display: flex;
+  justify-content: space-between;
   align-items: center;
-  padding: 0.5rem 10px;
+  padding: 0.5rem 10px 0 10px;
+  border: 5px solid #0d1229;
 }
-header span {
+header img, header span {
   font-size: 1.6rem;
   font-weight: 500;
   color: #ffb26b;
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 1rem;
+}
+header .phone {
+  margin-left: auto;
+  padding-top: 2rem;
+}
+header .phone a {
+  color: #ffb26b;
+  text-decoration: none;
+}
+header .phone a:hover {
+  -webkit-text-decoration: un;
+          text-decoration: un;
 }
 
 /* --------------------------- NAVIGATION STUFF GOES HERE --------------------------- */
@@ -364,7 +378,7 @@ header span {
 #theNav ul {
   list-style-type: none;
   margin: 0;
-  padding: 1rem 0;
+  padding: 0.5rem 0;
 }
 #theNav ul li a {
   color: #0d1229;
@@ -527,6 +541,9 @@ footer a {
 
 @media only screen and (min-width: 35rem) {
   /* NAVIGATION STUFF GOES HERE  */
+  header .phone {
+    padding: 0;
+  }
   #theButton {
     display: none;
   }

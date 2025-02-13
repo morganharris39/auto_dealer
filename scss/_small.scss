@@ -26,15 +26,29 @@ body {
 }
 
 header {
-    display: grid;
-    grid-template-columns: 50px auto;
-    column-gap: $gutter;
-    align-items: center; //vertically
-    padding: .5rem $gutter;
-    span {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem $gutter 0 $gutter;
+    border: 5px solid $primaryColor;
+    img, span {
         font-size: 1.6rem;
         font-weight: $normalWeight;
         color: $secondaryColor;
+        display: inline-block;
+        vertical-align: middle;
+        margin-right: 1rem;
+    }
+    .phone {
+        margin-left: auto;
+        padding-top: 2rem;
+        a {
+            color: $secondaryColor;
+            text-decoration: none;
+            &:hover {
+                text-decoration: un;
+            }
+        }
     }
 } // end header
 
@@ -66,7 +80,7 @@ header {
 #theNav ul{
     list-style-type: none;
     margin: 0;
-    padding: 1rem 0;
+    padding: 0.5rem 0;
     li a {
         color: $primaryColor;
         display: block;
